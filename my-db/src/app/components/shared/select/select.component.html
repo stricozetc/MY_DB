@@ -1,0 +1,9 @@
+<div class="db-select">
+  <mat-select [placeholder]="'Объект'"
+              (selectionChange)="onSelectOptionChange($event)">
+    <mat-option *ngFor="let option of selectOptions"
+                [value]="option.value">
+      {{option.viewValue}}
+    </mat-option>
+  </mat-select>
+</div>
