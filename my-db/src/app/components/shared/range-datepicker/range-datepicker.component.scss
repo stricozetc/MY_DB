@@ -1,0 +1,13 @@
+@import '../../../../variables.scss';
+
+.db-range-datepicker {
+  display: flex;
+  align-items: center;
+
+  &__divide {
+    font-size: $baseFontSize;
+    font-family: $baseFontSize;
+    color: $baseBlack;
+    margin: 0 10px;
+  }
+}
