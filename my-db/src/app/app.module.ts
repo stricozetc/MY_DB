@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 
 import { ButtonComponent } from './components/shared/button/button.component';
 import { SelectComponent } from './components/shared/select/select.component';
+import { InputComponent } from './components/shared/input/input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
     SelectComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,
