@@ -12,6 +12,9 @@ import {
 })
 export class CheckboxComponent {
   @Input() public caption: string = '';
+  @Input() public isChecked?: boolean = false;
+  @Input() public isIndeterminate?: boolean = false;
+  @Input() public ariaLabel?: string = '';
   @Output() public checkboxChange: EventEmitter<boolean> = new EventEmitter();
 
   public onCheckboxChange($event: any): void {

@@ -1,0 +1,476 @@
+<!-- ObjectInfo Table-->
+<table *ngIf="tableType.objectInfo"
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z8">
+  <ng-container matColumnDef="task">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+      <app-checkbox (change)="$event ? masterToggle() : null"
+                    [isChecked]="selection.hasValue() && isAllSelected()"
+                    [isIndeterminate]="selection.hasValue() && !isAllSelected()"
+                    [ariaLabel]="checkboxLabel()"
+                    caption="Задача">
+      </app-checkbox>
+    </th>
+    <td mat-cell
+        *matCellDef="let row">
+      <app-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [isChecked]="selection.isSelected(row)"
+                    [ariaLabel]="checkboxLabel(row)"
+                    [caption]="row.task">
+      </app-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="welding">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Св. аппарат
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.welding}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="employ">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Сотрудник
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.employ}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dates">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Время резерва
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.dates}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="state">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Состояние
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.state}}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row
+      *matHeaderRowDef="displayedColumns">
+  </tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)">
+  </tr>
+</table>
+
+<!-- Employes Table-->
+<table *ngIf="tableType.employes"
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+      <app-checkbox (change)="$event ? masterToggle() : null"
+                    [isChecked]="selection.hasValue() && isAllSelected()"
+                    [isIndeterminate]="selection.hasValue() && !isAllSelected()"
+                    [ariaLabel]="checkboxLabel()"
+                    caption="Фамилия Имя">
+      </app-checkbox>
+    </th>
+    <td mat-cell
+        *matCellDef="let row">
+      <app-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [isChecked]="selection.isSelected(row)"
+                    [ariaLabel]="checkboxLabel(row)"
+                    [caption]="row.name">
+      </app-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Дата аттестации
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.date}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Разряд
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.title}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="object">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Объект
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.object}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="state">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Состояние
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.state}}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row
+      *matHeaderRowDef="displayedColumns">
+  </tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)">
+  </tr>
+</table>
+
+<!-- EmployInfo Table-->
+<table *ngIf="tableType.employInfo"
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z8">
+  <ng-container matColumnDef="object">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+      <app-checkbox (change)="$event ? masterToggle() : null"
+                    [isChecked]="selection.hasValue() && isAllSelected()"
+                    [isIndeterminate]="selection.hasValue() && !isAllSelected()"
+                    [ariaLabel]="checkboxLabel()"
+                    caption="Объект">
+      </app-checkbox>
+    </th>
+    <td mat-cell
+        *matCellDef="let row">
+      <app-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [isChecked]="selection.isSelected(row)"
+                    [ariaLabel]="checkboxLabel(row)"
+                    [caption]="row.object">
+      </app-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="task">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Задача
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.task}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="welding">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Сварочный аппарат
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.welding}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Время резерва
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.date}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="state">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Состояние
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.state}}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row
+      *matHeaderRowDef="displayedColumns">
+  </tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)">
+  </tr>
+</table>
+
+<!-- Welding Table-->
+<table *ngIf="tableType.welding"
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+      <app-checkbox (change)="$event ? masterToggle() : null"
+                    [isChecked]="selection.hasValue() && isAllSelected()"
+                    [isIndeterminate]="selection.hasValue() && !isAllSelected()"
+                    [ariaLabel]="checkboxLabel()"
+                    caption="Имя">
+      </app-checkbox>
+    </th>
+    <td mat-cell
+        *matCellDef="let row">
+      <app-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [isChecked]="selection.isSelected(row)"
+                    [ariaLabel]="checkboxLabel(row)"
+                    [caption]="row.name">
+      </app-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dateSertification">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Дата сертификации
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.dateSertification}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="model">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Модель
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.model}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="object">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Объект
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.object}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="state">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Состояние
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.state}}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row
+      *matHeaderRowDef="displayedColumns">
+  </tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)">
+  </tr>
+</table>
+
+<!-- WeldingInfo Table-->
+<table *ngIf="tableType.weldingInfo"
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z8">
+  <ng-container matColumnDef="object">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+      <app-checkbox (change)="$event ? masterToggle() : null"
+                    [isChecked]="selection.hasValue() && isAllSelected()"
+                    [isIndeterminate]="selection.hasValue() && !isAllSelected()"
+                    [ariaLabel]="checkboxLabel()"
+                    caption="Объект">
+      </app-checkbox>
+    </th>
+    <td mat-cell
+        *matCellDef="let row">
+      <app-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [isChecked]="selection.isSelected(row)"
+                    [ariaLabel]="checkboxLabel(row)"
+                    [caption]="row.object">
+      </app-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="task">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Задача
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.task}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="employ">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Сотрудник
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.employ}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Время резерва
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.date}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="state">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Состояние
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.state}}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row
+      *matHeaderRowDef="displayedColumns">
+  </tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)">
+  </tr>
+</table>
+
+<!-- Object Table-->
+<table *ngIf="tableType.object"
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z8">
+
+  <ng-container matColumnDef="object">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Объект
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.object}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="taskCount">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Количество задач
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.taskCount}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="objectResult">
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header>
+          Результат объекта
+    </th>
+    <td mat-cell
+        *matCellDef="let element">
+          {{element.objectResult}}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row
+      *matHeaderRowDef="displayedColumns">
+  </tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)">
+  </tr>
+</table>

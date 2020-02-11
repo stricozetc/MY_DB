@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,7 @@ import { SelectComponent } from './components/shared/select/select.component';
 import { InputComponent } from './components/shared/input/input.component';
 import { CheckboxComponent } from './components/shared/checkbox/checkbox.component';
 import { RangeDatepickerComponent } from './components/shared/range-datepicker/range-datepicker.component';
+import { TableComponent } from './components/shared/table/table.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { RangeDatepickerComponent } from './components/shared/range-datepicker/r
     InputComponent,
     CheckboxComponent,
     RangeDatepickerComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,8 @@ import { RangeDatepickerComponent } from './components/shared/range-datepicker/r
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
