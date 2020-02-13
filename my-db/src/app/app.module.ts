@@ -21,10 +21,12 @@ import { CheckboxComponent } from './components/shared/checkbox/checkbox.compone
 import { RangeDatepickerComponent } from './components/shared/range-datepicker/range-datepicker.component';
 import { TableComponent } from './components/shared/table/table.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { WeldingTableComponent } from './components/shared/welding-table/welding-table.component';
+import { ObjectsTableComponent } from './components/shared/objects-table/objects-table.component';
 
 import { EmployesPageComponent } from './pages/employes-page/employes-page.component';
 import { WeldingsPageComponent } from './pages/weldings-page/weldings-page.component';
-import { WeldingTableComponent } from './components/shared/welding-table/welding-table.component';
+import { ObjectsPageComponent } from './pages/objects-page/objects-page.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { WeldingTableComponent } from './components/shared/welding-table/welding
     NavigationComponent,
     WeldingsPageComponent,
     WeldingTableComponent,
+    ObjectsTableComponent,
+    ObjectsPageComponent,
   ],
   imports: [
     BrowserModule,
