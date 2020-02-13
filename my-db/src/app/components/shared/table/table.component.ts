@@ -2,11 +2,15 @@ import {
   Component,
   ViewChild,
   OnInit,
-  Input,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
+import { BehaviorSubject } from 'rxjs';
 import { MatSort } from '@angular/material/sort';
+import { EMPLOY_COLUMN } from 'src/app/options';
+import { EmployesTable } from 'src/app/interfaces';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-table',
@@ -14,13 +18,17 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  @Input() public displayedColumns: string[];
-  @Input() public dataSource: MatTableDataSource<any>;
-  @Input() public tableType: any;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  public displayedColumns: string[] = EMPLOY_COLUMN;
+  public dataSource: MatTableDataSource<EmployesTable> = new MatTableDataSource(this.utilsService.employesTable);
   public selection = new SelectionModel<any>(true, []);
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  constructor(private utilsService: UtilsService) {}
 
   ngOnInit() {
+    this.utilsService.$employesTable.subscribe(value => {
+      this.dataSource = new MatTableDataSource(value);
+    });
     this.dataSource.sort = this.sort;
   }
 

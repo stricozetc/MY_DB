@@ -1,0 +1,20 @@
+@import '../../../variables.scss';
+
+.db-navigation {
+  padding: 20px;
+  background-color: $navigationBackgroundColor;
+
+  &__link {
+    font-size: $baseFontSize;
+    font-family: $baseFont;
+    font-weight: bold;
+    color: $baseWhite;
+    transition: 0.5s all;
+    text-decoration: none;
+    margin-right: 30px;
+
+    &:hover {
+      color: $hoverLinkColor;
+    }
+  }
+}

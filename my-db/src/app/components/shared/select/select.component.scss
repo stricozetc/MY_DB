@@ -7,5 +7,11 @@
   font-size: $baseFontSize;
   font-family: $baseFont;
   border: 1px solid $baseBlack;
-  padding: 0 10px;
+
+  & > select {
+    min-width: 200px;
+    height: 100%;
+    cursor: pointer;
+    outline: none;
+  }
 }
