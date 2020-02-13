@@ -1,4 +1,4 @@
 <input class="db-input"
-        #input
-        placeholder="placeholder"
-        (change)="onInputChange(input.value)" />
+        [id]="inputId"
+        [placeholder]="placeholder"
+        (change)="onInputChange($event)" />

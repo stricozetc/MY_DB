@@ -11,10 +11,11 @@ import {
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent {
+  @Input() public inputId: string;
   @Input() public placeholder: string = '';
   @Output() public inputChange: EventEmitter<string> = new EventEmitter();
 
-  public onInputChange($event: string): void {
-    this.inputChange.emit($event);
+  public onInputChange(event: any): void {
+    this.inputChange.emit(event.target);
   }
 }

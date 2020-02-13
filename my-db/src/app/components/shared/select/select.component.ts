@@ -13,11 +13,11 @@ import { SelectOption } from '../../../interfaces';
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent {
-  @Input() public placeholder: string = '';
+  @Input() public selectId: string;
   @Input() public selectOptions: SelectOption;
   @Output() public selectChange: EventEmitter<string> = new EventEmitter();
 
   public onSelectOptionChange(event: any): void {
-    this.selectChange.emit(event.value);
+    this.selectChange.emit(event.target);
   }
 }

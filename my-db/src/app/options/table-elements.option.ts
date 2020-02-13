@@ -1,7 +1,6 @@
 import {
   ObjectInfoTable,
   EmployInfoTable,
-  EmployesTable,
   ObjectTable,
   WeldingInfoTable,
   WeldingTable,
@@ -31,19 +30,6 @@ export const EMPLOY_INFO_TABLE: EmployInfoTable[] = [
   { object: 'Задача 8' , task: '', welding: 'Oxygen', date: '15.9994', state: 'O' },
   { object: 'Задача 9' , task: '', welding: 'Fluorine', date: '18.9984', state: 'F' },
   { object: 'Задача 10' , task: '', welding: 'Neon', date: '20.1797', state: 'Ne' },
-];
-
-export const EMPLOYES_TABLE: EmployesTable[] = [
-  { name: 'Задача 1' , date: '', title: 4, object: '1.0079', state: 'H' },
-  { name: 'Задача 2' , date: '', title: 5, object: '4.0026', state: 'He' },
-  { name: 'Задача 3' , date: '', title: 1, object: '6.941', state: 'Li' },
-  { name: 'Задача 4' , date: '', title: 4, object: '9.0122', state: 'Be' },
-  { name: 'Задача 5' , date: '', title: 5, object: '10.811', state: 'B' },
-  { name: 'Задача 6' , date: '', title: 3, object: '12.0107', state: 'C' },
-  { name: 'Задача 7' , date: '', title: 2, object: '14.0067', state: 'N' },
-  { name: 'Задача 8' , date: '', title: 4, object: '15.9994', state: 'O' },
-  { name: 'Задача 9' , date: '', title: 1, object: '18.9984', state: 'F' },
-  { name: 'Задача 10' , date: '', title: 6, object: '20.1797', state: 'Ne' },
 ];
 
 export const OBJECT_TABLE: ObjectTable[] = [

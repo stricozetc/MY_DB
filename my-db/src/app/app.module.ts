@@ -20,6 +20,9 @@ import { InputComponent } from './components/shared/input/input.component';
 import { CheckboxComponent } from './components/shared/checkbox/checkbox.component';
 import { RangeDatepickerComponent } from './components/shared/range-datepicker/range-datepicker.component';
 import { TableComponent } from './components/shared/table/table.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+
+import { EmployesPageComponent } from './pages/employes-page/employes-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { TableComponent } from './components/shared/table/table.component';
     CheckboxComponent,
     RangeDatepickerComponent,
     TableComponent,
+    EmployesPageComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
