@@ -1,0 +1,17 @@
+<div class="db-objects-page">
+  <div class="db-objects-page-control">
+    <app-input placeholder="Объект"
+                inputId="search"
+                (inputChange)="searchChange($event)"></app-input>
+    <app-button caption="Поиск"
+                type="primary"
+                (buttonClick)="searchEngine()">
+    </app-button>
+    <app-button caption="Очистить"
+                type="secondary"
+                (buttonClick)="clear()">
+    </app-button>
+  </div>
+  <div class="db-objects-page-buttons"></div>
+  <app-objects-table></app-objects-table>
+</div>
