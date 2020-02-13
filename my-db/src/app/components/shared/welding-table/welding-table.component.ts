@@ -1,31 +1,26 @@
-import {
-  Component,
-  ViewChild,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
-import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
-import { EMPLOY_COLUMN } from 'src/app/options';
-import { EmployesTable } from 'src/app/interfaces';
-import { UtilsService } from 'src/app/services/utils.service';
+import { WELDING_COLUMN } from 'src/app/options';
+import { WeldingTable } from 'src/app/interfaces';
+import { WeldingsService } from 'src/app/services/weldings.service';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  selector: 'app-welding-table',
+  templateUrl: './welding-table.component.html',
+  styleUrls: ['./welding-table.component.scss']
 })
-export class TableComponent implements OnInit {
-  public displayedColumns: string[] = EMPLOY_COLUMN;
-  public dataSource: MatTableDataSource<EmployesTable> = new MatTableDataSource(this.utilsService.employesTable);
+export class WeldingTableComponent implements OnInit {
+  public displayedColumns: string[] = WELDING_COLUMN;
+  public dataSource: MatTableDataSource<WeldingTable> = new MatTableDataSource(this.weldingsService.weldingsTable);
   public selection = new SelectionModel<any>(true, []);
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-
-  constructor(private utilsService: UtilsService) {}
+  constructor(private weldingsService: WeldingsService) { }
 
   ngOnInit() {
-    this.utilsService.$employesTable.subscribe(value => {
+    this.weldingsService.$weldingsTable.subscribe(value => {
       this.dataSource = new MatTableDataSource(value);
     });
     this.dataSource.sort = this.sort;
@@ -49,4 +44,5 @@ export class TableComponent implements OnInit {
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.employ + 1}`;
   }
+
 }

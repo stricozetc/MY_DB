@@ -23,6 +23,8 @@ import { TableComponent } from './components/shared/table/table.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 
 import { EmployesPageComponent } from './pages/employes-page/employes-page.component';
+import { WeldingsPageComponent } from './pages/weldings-page/weldings-page.component';
+import { WeldingTableComponent } from './components/shared/welding-table/welding-table.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { EmployesPageComponent } from './pages/employes-page/employes-page.compo
     TableComponent,
     EmployesPageComponent,
     NavigationComponent,
+    WeldingsPageComponent,
+    WeldingTableComponent,
   ],
   imports: [
     BrowserModule,

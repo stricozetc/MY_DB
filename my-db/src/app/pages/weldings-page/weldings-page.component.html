@@ -1,0 +1,36 @@
+<div class="db-weldings-page">
+  <div class="db-weldings-page-control">
+    <app-input placeholder="Имя"
+                inputId="search"
+                (inputChange)="searchChange($event)"></app-input>
+    <app-select selectId="model"
+                [selectOptions]="modelOptions"
+                (selectChange)="modelSelectChange($event)">
+    </app-select>
+    <app-select selectId="object"
+                [selectOptions]="objectOptions"
+                (selectChange)="objectSelectChange($event)">
+    </app-select>
+    <app-select selectId="state"
+                [selectOptions]="stateOptions"
+                (selectChange)="stateSelectChange($event)">
+    </app-select>
+    <app-button caption="Поиск"
+                type="primary"
+                (buttonClick)="searchEngine()">
+    </app-button>
+    <app-button caption="Очистить"
+                type="secondary"
+                (buttonClick)="clear()">
+    </app-button>
+  </div>
+  <div class="db-weldings-page-buttons">
+    <app-button caption="Добавить сотрудника"
+                type="primary">
+    </app-button>
+    <app-button caption="В PDF"
+                type="primary">
+    </app-button>
+  </div>
+  <app-welding-table></app-welding-table>
+</div>
